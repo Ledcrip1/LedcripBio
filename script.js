@@ -11,15 +11,25 @@ function typeBio() {
     }
 }
 
-// Запускаем анимацию печати после завершения основной анимации
 setTimeout(typeBio, 3500);
 
+// ===== Анимация для "Обо мне" =====
 document.getElementById('aboutMeButton').addEventListener('click', () => {
     const aboutMeText = "У меня 3 года опыта на HTML, CSS и Python. У меня много проектов";
     const aboutMeElement = document.getElementById('aboutMeText');
-    aboutMeElement.innerHTML = '';
-    let charIndex = 0;
+    const overlay = document.getElementById('overlay');
+    const popup = overlay.querySelector('.popup');
 
+    aboutMeElement.innerHTML = '';
+    overlay.style.display = 'flex';
+    
+    // Анимация появления
+    setTimeout(() => {
+        overlay.style.opacity = '1';
+        popup.style.transform = 'scale(1)';
+    }, 10);
+
+    let charIndex = 0;
     function typeAboutMe() {
         if (charIndex < aboutMeText.length) {
             aboutMeElement.innerHTML += aboutMeText.charAt(charIndex);
@@ -27,15 +37,23 @@ document.getElementById('aboutMeButton').addEventListener('click', () => {
             setTimeout(typeAboutMe, 50);
         }
     }
-
-    document.getElementById('overlay').style.display = 'flex';
     typeAboutMe();
 });
 
 document.getElementById('closePopup').addEventListener('click', () => {
-    document.getElementById('overlay').style.display = 'none';
+    const overlay = document.getElementById('overlay');
+    const popup = overlay.querySelector('.popup');
+
+    // Анимация исчезновения
+    overlay.style.opacity = '0';
+    popup.style.transform = 'scale(0.9)';
+    
+    setTimeout(() => {
+        overlay.style.display = 'none';
+    }, 300);
 });
 
+// ===== Анимация для "Проекты" =====
 document.getElementById('projectsButton').addEventListener('click', () => {
     const projects = [
         "Первые самые базовые проекты - 2022г.",
@@ -70,11 +88,15 @@ document.getElementById('projectsButton').addEventListener('click', () => {
     });
 });
 
+// ===== Анимация для "Контакты" =====
 document.getElementById('contactButton').addEventListener('click', () => {
     const contactPopup = document.createElement('div');
     contactPopup.className = 'overlay';
+    contactPopup.style.opacity = '0';
+    contactPopup.style.transition = 'opacity 0.3s ease';
+    
     contactPopup.innerHTML = `
-        <div class="popup">
+        <div class="popup" style="transform: scale(0.9); transition: transform 0.3s ease;">
             <h2>Связи</h2>
             <p>Вы можете связаться со мной через Telegram или GitHub</p>
             <button class="button button--primary" id="closeContactPopup">Закрыть</button>
@@ -82,13 +104,26 @@ document.getElementById('contactButton').addEventListener('click', () => {
     `;
     document.body.appendChild(contactPopup);
 
+    // Анимация появления
+    setTimeout(() => {
+        contactPopup.style.opacity = '1';
+        contactPopup.querySelector('.popup').style.transform = 'scale(1)';
+    }, 10);
+
     contactPopup.querySelector('#closeContactPopup').addEventListener('click', () => {
-        document.body.removeChild(contactPopup);
+        // Анимация исчезновения
+        contactPopup.style.opacity = '0';
+        contactPopup.querySelector('.popup').style.transform = 'scale(0.9)';
+        
+        setTimeout(() => {
+            document.body.removeChild(contactPopup);
+        }, 300);
     });
 
     contactPopup.style.display = 'flex';
 });
 
+// ===== Анимация для языков программирования =====
 const languageButtons = document.querySelectorAll('.language-button');
 languageButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -115,8 +150,11 @@ languageButtons.forEach(button => {
 
         const langPopup = document.createElement('div');
         langPopup.className = 'overlay';
+        langPopup.style.opacity = '0';
+        langPopup.style.transition = 'opacity 0.3s ease';
+        
         langPopup.innerHTML = `
-            <div class="popup">
+            <div class="popup" style="transform: scale(0.9); transition: transform 0.3s ease;">
                 <h2>${lang}</h2>
                 <p>${langInfo}</p>
                 <button class="button button--primary" id="closeLangPopup">Закрыть</button>
@@ -124,8 +162,20 @@ languageButtons.forEach(button => {
         `;
         document.body.appendChild(langPopup);
 
+        // Анимация появления
+        setTimeout(() => {
+            langPopup.style.opacity = '1';
+            langPopup.querySelector('.popup').style.transform = 'scale(1)';
+        }, 10);
+
         langPopup.querySelector('#closeLangPopup').addEventListener('click', () => {
-            document.body.removeChild(langPopup);
+            // Анимация исчезновения
+            langPopup.style.opacity = '0';
+            langPopup.querySelector('.popup').style.transform = 'scale(0.9)';
+            
+            setTimeout(() => {
+                document.body.removeChild(langPopup);
+            }, 300);
         });
 
         langPopup.style.display = 'flex';

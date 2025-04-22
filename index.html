@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ledcrip Coder | Разработчик</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card assemble" style="animation-delay: 0.2s;">
+        <div class="header assemble" style="animation-delay: 0.4s;">
+            <div class="badge assemble" style="animation-delay: 0.6s;">PRO</div>
+            <h1 class="assemble" style="animation-delay: 0.5s;">Ledcrip Coder</h1>
+            <p class="url assemble" style="animation-delay: 0.6s;">БИОГРАФИЯ:</p>
+        </div>
+        
+        <div class="content assemble" style="animation-delay: 0.7s;">
+            <h2 class="title assemble" style="animation-delay: 0.8s;">Разработчик ПО</h2>
+            <p class="description assemble" id="bio" style="animation-delay: 0.9s;"></p>
+            
+            <div class="skills">
+                <span class="skill assemble" style="animation-delay: 1.0s;">Python</span>
+                <span class="skill assemble" style="animation-delay: 1.05s;">C++</span>
+                <span class="skill assemble" style="animation-delay: 1.1s;">HTML</span>
+                <span class="skill assemble" style="animation-delay: 1.15s;">CSS</span>
+                <span class="skill assemble" style="animation-delay: 1.2s;">JavaScript</span>
+            </div>
+
+            <div class="buttons">
+                <a href="https://t.me/loderps" target="_blank" class="telegram-button assemble" style="animation-delay: 1.3s;">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+                <button class="button button--primary assemble" id="aboutMeButton" style="animation-delay: 1.4s;">Обо мне</button>
+                <div class="extra-buttons">
+                    <button class="extra-button assemble" id="projectsButton" style="animation-delay: 1.5s;">
+                        <i class="fas fa-code"></i> Проекты
+                    </button>
+                    <button class="extra-button assemble" id="contactButton" style="animation-delay: 1.6s;">
+                        <i class="fas fa-envelope"></i> Контакты
+                    </button>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" class="social-link github assemble" style="animation-delay: 1.7s;">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Языки программирования -->
+    <div class="languages-container assemble" style="animation-delay: 1.8s;">
+        <h2 class="title assemble" style="animation-delay: 1.9s;">Языки программирования</h2>
+        <div class="languages">
+            <button class="language-button assemble" data-lang="Python" style="animation-delay: 2.0s;">Python</button>
+            <button class="language-button assemble" data-lang="C++" style="animation-delay: 2.1s;">C++</button>
+            <button class="language-button assemble" data-lang="HTML" style="animation-delay: 2.2s;">HTML</button>
+            <button class="language-button assemble" data-lang="CSS" style="animation-delay: 2.3s;">CSS</button>
+            <button class="language-button assemble" data-lang="JavaScript" style="animation-delay: 2.4s;">JavaScript</button>
+        </div>
+    </div>
+
+    <!-- Проекты -->
+    <div class="projects-container assemble" style="animation-delay: 2.5s;">
+        <h2 class="title assemble" style="animation-delay: 2.6s;">Проекты</h2>
+        <div class="projects">
+            <div class="project assemble" id="project1" style="animation-delay: 2.7s;"></div>
+            <div class="project assemble" id="project2" style="animation-delay: 2.8s;"></div>
+            <div class="project assemble" id="project3" style="animation-delay: 2.9s;"></div>
+            <div class="project assemble" id="project4" style="animation-delay: 3.0s;"></div>
+        </div>
+    </div>
+
+    <!-- Всплывающее меню -->
+    <div class="overlay" id="overlay">
+        <div class="popup">
+            <h2>Привет!</h2>
+            <p id="aboutMeText"></p>
+            <button class="button button--primary" id="closePopup">Закрыть</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
